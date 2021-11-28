@@ -4,7 +4,6 @@ import { IoMdFitness } from 'react-icons/io';
 import { ImInstagram, ImFacebook2 } from 'react-icons/im';
 import { Container, Stack } from 'react-bootstrap';
 import Image from 'next/image';
-import { useSession, signIn, signOut } from "next-auth/react"
 
 const LoginForm = (): JSX.Element => {
     // const [session, loading] = useSession()
@@ -33,7 +32,6 @@ const LoginForm = (): JSX.Element => {
                 <Container>
                     <Stack gap={1}>
                         <Button 
-                        onClick={(e)=> {e.preventDefault(); signIn()}}
                             variant="#3b5998" 
                             type="submit" 
                             style={{
@@ -46,7 +44,7 @@ const LoginForm = (): JSX.Element => {
                                 style={{verticalAlign: "middle"}}
                             /> Log in with Facebook
                         </Button>
-                        <Button onClick={(e)=> {e.preventDefault(); signIn()}} type="submit" 
+                        <Button type="submit" 
                                 style={{
                                     backgroundColor: '#E33E5C !important', 
                                     color: 'white', 
