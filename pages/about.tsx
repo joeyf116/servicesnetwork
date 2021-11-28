@@ -11,7 +11,6 @@ const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then(res =
 const About: NextPage = () => {
     const fetchUrl = '/api/hello';
     const {data, error} = useSWR(fetchUrl, fetcher);
-    console.log(data);
 
     if(!data) {
         return (

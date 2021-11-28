@@ -1,12 +1,13 @@
 import NextAuth from "next-auth"
-import Providers from "next-auth/providers"
+import GitHubProvider from "next-auth/providers/github"
 
 export default NextAuth({
   providers: [
     // OAuth authentication providers
-    Providers.Facebook({
-      clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET
+    })
+    
   ],
 });
