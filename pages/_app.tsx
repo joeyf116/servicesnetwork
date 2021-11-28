@@ -1,27 +1,21 @@
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { UserProvider } from '@auth0/nextjs-auth0';
 import SSRProvider from 'react-bootstrap/SSRProvider'
 import type { AppProps } from 'next/app';
 import NavigationBar from '../components/navigation/NavigationBar';
-import React, { useState } from 'react';
-import { SessionProvider } from "next-auth/react";
+import React from 'react';
 
 
-function MyApp({ Component,
-  pageProps: { session, ...pageProps } }: AppProps) {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-  
-  const authenticateUser = (): void => {
-    setIsLoggedIn(true);
-  }
+function MyApp({ Component, pageProps }: AppProps) {
 
   return (
-    <SessionProvider session={session}>
+    <UserProvider>
         <SSRProvider>
           <NavigationBar />
-          <Component {...pageProps} authenticatedUser={authenticateUser} />
+          <Component {...pageProps} />
         </SSRProvider>
-      </SessionProvider>
+      </UserProvider>
   )
 }
 
