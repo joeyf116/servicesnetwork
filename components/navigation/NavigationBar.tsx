@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { Container, Navbar, Nav,  NavDropdown, Badge } from 'react-bootstrap';
-import Image from 'next/image'
-import { IoIosFitness } from 'react-icons/io';
-import useSWR from 'swr';
-
-const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then(res => res.json())
+import { Container, Navbar, Nav,  NavDropdown, Badge, Image } from 'react-bootstrap';
+import { useUser } from '@auth0/nextjs-auth0';
 
 const NavigationBar = () => {
     const [notification, setNotification] = useState<boolean>(true);
+    const { user } = useUser();
 
-    if(true) {
+    if(user) {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -27,8 +24,8 @@ const NavigationBar = () => {
                 <Nav.Link href="#pricing">Services</Nav.Link>
                 </Nav>
                 <Nav>
-                    {/* <Image className="rounded-circle" src={data.user.image} alt="avatar" width={50} height={40} objectFit="initial" /> */}
-                    <NavDropdown title={"username"} id="basic-nav-dropdown" menuVariant="dark">
+                    <Image className="rounded-circle" src={user.picture ? user.picture : undefined} alt="avatar" width={50} height={40} />
+                    <NavDropdown title={user.name} id="basic-nav-dropdown" menuVariant="dark">
                         <NavDropdown.Item href="#action/3.1">My Account</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
                             <NavDropdown.Divider />
@@ -47,8 +44,11 @@ const NavigationBar = () => {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-            <Navbar.Brand href="#home">
-                Anywhere <IoIosFitness style={{transform: "rotate(90deg)"}}/>  Fitness
+            <Navbar.Brand href="/">
+                <Image src="/servicesBrandLogoAcronym.png" alt="logo" width={60} height={60} />
+            </Navbar.Brand>
+            <Navbar.Brand href="/">
+                My Services Network
             </Navbar.Brand>
             </Container>
             </Navbar>
