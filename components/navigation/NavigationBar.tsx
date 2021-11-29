@@ -15,13 +15,16 @@ const NavigationBar = () => {
             <Container>
                 
             <Navbar.Brand href="/">
-                Anywhere <IoIosFitness style={{transform: "rotate(90deg)"}}/>  Fitness
+                <Image src="/servicesBrandLogoAcronym.png" alt="logo" width={60} height={60} />
+            </Navbar.Brand>
+            <Navbar.Brand href="/">
+                My Services Network
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                 <Nav.Link href="#features">Home</Nav.Link>
-                <Nav.Link href="#pricing">Workouts</Nav.Link>
+                <Nav.Link href="#pricing">Services</Nav.Link>
                 </Nav>
                 <Nav>
                     {/* <Image className="rounded-circle" src={data.user.image} alt="avatar" width={50} height={40} objectFit="initial" /> */}
