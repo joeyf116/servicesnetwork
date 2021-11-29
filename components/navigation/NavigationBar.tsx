@@ -9,10 +9,6 @@ const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args).then(res =
 const NavigationBar = () => {
     const [notification, setNotification] = useState<boolean>(true);
 
-    const fetchUrl = '/api/auth/session';
-    const {data, error} = useSWR(fetchUrl, fetcher);
-    console.log(data)
-
     if(true) {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
